@@ -16,10 +16,8 @@ Folowing technologies and standers are consumed in this project
 
 ## Prerequisites
 
-List any software, tools, or dependencies that users need to have installed on their machine. For example:
-
 - Node.js (version X.X.X)
-- npm or yarn
+- npm 
 - MySQL server (version X.X.X)
 
 ## Installation
@@ -48,7 +46,7 @@ Explain how to configure the MySQL database for your app.
 
 ## API Documentation
 
-If you have API endpoints, explain how to use them. You can provide sample requests and responses using tools like Postman or Swagger.
+
 
 ## TODO
 
