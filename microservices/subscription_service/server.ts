@@ -1,8 +1,9 @@
 import cors from "cors";
 import path from "path";
 import express from "express";
-import routes from "./router";
 import bodyParser from "body-parser";
+import swaggerUi from 'swagger-ui-express';
+import routes from "./router";
 import database from '../../libs/models'
 import * as serverHandlers from "./serverHandlers";
 import {
@@ -12,7 +13,7 @@ import {
 import errHandler from "../../libs/core/helpers/errHandler";
 import { checkToken } from "../../libs/core/middleware/jwtVerifier";
 import { generateLogger } from "../../libs/core/helpers/logManager";
-
+import swaggerSpecs from './swagger'
 try {
     database.connect({isSync:true});
   //set environment variables
@@ -24,7 +25,7 @@ try {
   const objServiceApp:any = express();
   //middlewares configuration
   objServiceApp.use(cors());
-  objServiceApp.use(checkToken);
+  objServiceApp.use("/subs",checkToken);
   objServiceApp.use(bodyParser.json());
   objServiceApp.use(function(err, req, res, next) {
     if (err instanceof SyntaxError && "body" in err) {
@@ -33,7 +34,8 @@ try {
       });
     } else next();
   });
-  objServiceApp.use("/", routes);
+  objServiceApp.use("/subs", routes);
+  objServiceApp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
   getEnvVariable()
     .then(async objCurrentEnv => {

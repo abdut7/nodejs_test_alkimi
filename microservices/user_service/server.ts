@@ -3,6 +3,7 @@ import path from "path";
 import express from "express";
 import routes from "./router";
 import bodyParser from "body-parser";
+import swaggerUi from 'swagger-ui-express';
 import database from '../../libs/models'
 import * as serverHandlers from "./serverHandlers";
 import {
@@ -10,8 +11,8 @@ import {
   getEnvVariable
 } from "../../libs/core/helpers/envConfig";
 import errHandler from "../../libs/core/helpers/errHandler";
-//import { checkToken } from "../../libs/core/middleware/jwtVerifier";
 import { generateLogger } from "../../libs/core/helpers/logManager";
+import swaggerSpecs from './swagger'
 
 try {
     database.connect({isSync:false});
@@ -34,7 +35,7 @@ try {
     } else next();
   });
   objServiceApp.use("/", routes);
-
+  objServiceApp.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
   getEnvVariable()
     .then(async objCurrentEnv => {
       let currentEnv:any = await objCurrentEnv;

@@ -46,6 +46,8 @@ Explain how to configure the MySQL database for your app.
 
 ## API Documentation
 
+1. USER SERVICES [http://localhost:4000/api-docs]
+2. SUBSCRIPTION SERVICES [http://localhost:4001/api-docs]
 
 
 ## TODO
