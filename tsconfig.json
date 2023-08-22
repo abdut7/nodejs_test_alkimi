@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "types": ["node", "mocha"],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": ".",
+    "outDir": "build",
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "listFiles": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./libs/**/*", "./microservices/**/*"],
+  "exclude": [
+    "node_modules",
+  ]
+}

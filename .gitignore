@@ -1,0 +1,20 @@
+/node_modules
+# Rider
+/.idea
+/.vscode
+/secret
+/upload
+package-lock.json
+/build
+node_modules 
+*.env 
+.env* 
+*.local
+node_modules 
+*.env 
+.env* 
+*.local
+node_modules 
+*.env 
+.env* 
+*.local
